@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>body {
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+    }
+    
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    input[type="date"],
+    input[type="time"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    
+    h1 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    
+    form {
+        margin-bottom: 30px;
+    }</style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>TRAIN BOOKING FORMS</h1>
+        
+        <!-- Railway System Form -->
+        <form method="post" action="{% url 'submit_railway_system' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="RailwaySystem_name">Railway System Name</label>
+                <input type="text" class="form-control" id="RailwaySystem_name" name="RailwaySystem_name" required>
+            </div>
+            <div class="form-group">
+                <label for="RailwaySystem_address">Railway System Address</label>
+                <input type="text" class="form-control" id="RailwaySystem_address" name="RailwaySystem_address" required>
+            </div>
+            <div class="form-group">
+                <label for="RailwaySystem_phone_number">Railway System Phone Number</label>
+                <input type="text" class="form-control" id="RailwaySystem_phone_number" name="RailwaySystem_phone_number" required>
+            </div>
+            <div class="form-group">
+                <label for="RailwaySystem_website">Railway System Website</label>
+                <input type="text" class="form-control" id="RailwaySystem_website" name="RailwaySystem_website" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Railway System</button>
+        </form>
+        
+        <!-- Railway Form -->
+        <form method="post" action="{% url 'submit_railway' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="Railway_name">Railway Name</label>
+                <input type="text" class="form-control" id="Railway_name" name="Railway_name" required>
+            </div>
+            <div class="form-group">
+                <label for="Railway_website">Railway Website</label>
+                <input type="text" class="form-control" id="Railway_website" name="Railway_website" required>
+            </div> 
+            
+            <button type="submit" class="btn btn-primary">Submit Railway</button>
+        </form>
+        
+        <!-- Train Form -->
+        <form method="post" action="{% url 'submit_train' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="train_number">Train Number</label>
+                <input type="text" class="form-control" id="train_number" name="train_number" required>
+            </div>
+            <div class="form-group">
+                <label for="departure_RailwaySystem_id">Departure Railway System ID</label>
+                <input type="text" class="form-control" id="departure_RailwaySystem_id" name="departure_RailwaySystem_id" required>
+            </div>
+            <div class="form-group">
+                <label for="arrival_RailwaySystem_id">Arrival Railway System ID</label>
+                <input type="text" class="form-control" id="arrival_RailwaySystem_id" name="arrival_RailwaySystem_id" required>
+            </div>
+            <div class="form-group">
+                <label for="departure_date">Departure Date</label>
+                <input type="date" class="form-control" id="departure_date" name="departure_date" required>
+            </div>
+            <div class="form-group">
+                <label for="arrival_date">Arrival Date</label>
+                <input type="date" class="form-control" id="arrival_date" name="arrival_date" required>
+            </div>
+            <div class="form-group">
+                <label for="departure_time">Departure Time</label>
+                <input type="time" class="form-control" id="departure_time" name="departure_time" required>
+            </div>
+            <div class="form-group">
+                <label for="arrival_time">Arrival Time</label>
+                <input type="time" class="form-control" id="arrival_time" name="arrival_time" required>
+            </div>
+            <div class="form-group">
+                <label for="train_status">Train Status</label>
+                <input type="text" class="form-control" id="train_status" name="train_status" required>
+            </div> 
+            <button type="submit" class="btn btn-primary">Submit Train</button>
+        </form>
+    </div>
+
+</body>
+</html>
